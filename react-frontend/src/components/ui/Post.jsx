@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { getPost, storePost } from "../../api/post";
-import "./styles/post.css";
-import PostCard from "./PostCard";
+import { getPost, storePost } from "../../api/Post";
+import "./styles/Post.css";
  
 export default function Post() {
-  const { posts, setPosts } = useState([]);
-  const { message, setMessage } = useState("");
-  const { error, setError } = useState("");
-  const { processing, setProcessing } = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [processing, setProcessing] = useState(false);
  
   useEffect(() => {
     const fetchPosts = async () => {
@@ -81,12 +80,15 @@ export default function Post() {
       <div className="post-feed-list">
         {posts.length > 0 ? (
           posts.map((post) => (
-            <PostCard key={post.id || Math.random()} post={post} />
+            <article key={post.id} className="post-feed-card">
+              <p>{post.message}</p>
+              <small>{new Date(post.created_at).toLocaleString()}</small>
+            </article>
           ))
         ) : (
           <div className="post-empty-state">No posts shared yet.</div>
         )}
-      </div>gigit
+      </div>
  
       
     </div>

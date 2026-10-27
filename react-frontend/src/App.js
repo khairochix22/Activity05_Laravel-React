@@ -5,6 +5,7 @@ import Card from "./components/Card";
 import Counter from "./components/Counter";
 import Form from "./components/Form";
 import List from "./components/List";
+import Post from "./components/ui/Post";
  
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Form />
       <Counter />
       <List />
+      <Post />
     </div>
   );
 }
