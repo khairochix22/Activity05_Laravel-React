@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HumanResourceController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,8 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/payroll', [HumanResourceController::class, 'payroll']);
 Route::post('/payroll/calculate', [HumanResourceController::class, 'calculate']);
+
+Route::apiResource('/posts', PostController::class);
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
